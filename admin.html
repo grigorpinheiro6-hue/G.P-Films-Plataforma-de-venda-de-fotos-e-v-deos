@@ -1,0 +1,11 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>G.P Films — Painel</title>
+<style>body{margin:0;background:#080808;color:#fff;font-family:Arial}.box{max-width:900px;margin:50px auto;padding:25px}.card{background:#111;border:1px solid #292929;border-radius:14px;padding:22px;margin:18px 0}input,button{padding:12px;border-radius:7px;border:1px solid #444;background:#191919;color:white}button{background:#d5aa54;color:#000;font-weight:bold;cursor:pointer}.hide{display:none}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px}</style></head><body><div class="box">
+<h1>G.P <span style="color:#d5aa54">FILMS</span></h1>
+<div id="login" class="card"><h2>Login do fotógrafo</h2><input id="email" placeholder="E-mail"><br><br><input id="pass" type="password" placeholder="Senha"><br><br><button onclick="login()">Entrar</button><p id="err"></p></div>
+<div id="panel" class="hide"><div class="card"><h2>Painel do fotógrafo</h2><p>Gerencie eventos, fotos, vídeos, preços e pedidos.</p><button onclick="novoEvento()">+ Cadastrar evento</button></div>
+<div id="events" class="grid"></div><div class="card"><h3>Upload de fotos e vídeos</h3><input id="files" type="file" multiple accept="image/*,video/*"><button onclick="upload()">Adicionar arquivos</button><p id="up"></p></div><a href="index.html" style="color:#d5aa54">← Voltar para o site</a></div>
+</div><script>
+function login(){if(email.value==='admin@gpfilms.com'&&pass.value==='123456'){loginDiv=document.getElementById('login');loginDiv.classList.add('hide');document.getElementById('panel').classList.remove('hide')}else err.textContent='Login inválido.'}
+function novoEvento(){let n=prompt('Nome do evento:');if(n){events.innerHTML+=`<div class="card"><h3>${n}</h3><p>Evento criado com sucesso.</p><button>Gerenciar galeria</button></div>`}}
+function upload(){let n=document.getElementById('files').files.length;up.textContent=n?n+' arquivo(s) selecionado(s). No sistema real, serão enviados para armazenamento privado.':'Selecione arquivos.'}
+</script></body></html>
